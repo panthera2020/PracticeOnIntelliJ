@@ -2,26 +2,17 @@ package aircondition;
 
 public class AirCondition {
     private boolean isOn;
-    private int temperature;
+    private int temperature = 16;
 
     public boolean isOn() {
         return isOn;
     }
 
-    public void turnOn() {
-        isOn = true;
-        temperature = 16;
-    }
+    public void turnOn() {isOn = true;}
 
-    public void turnOff() {
-        isOn = false;
-    }
+    public void turnOff() {isOn = false;}
 
-    public void increaseTemperature() {
-        if  (temperature < 30 && isOn()) {
-            temperature++;
-        }
-    }
+    public void increaseTemperature() {if  (temperature < 30 && isOn()) temperature++;}
 
     public int getTemperature() {
         return temperature;
