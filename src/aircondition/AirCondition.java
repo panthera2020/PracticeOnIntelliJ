@@ -18,7 +18,7 @@ public class AirCondition {
     }
 
     public void increaseTemperature() {
-        if  (temperature < 30) {
+        if  (temperature < 30 && isOn()) {
             temperature++;
         }
     }

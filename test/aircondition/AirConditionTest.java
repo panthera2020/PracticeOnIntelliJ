@@ -16,15 +16,13 @@ public class AirConditionTest {
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_ItIsOnTest() {
-//        AirCondition airCondition = new AirCondition();
+    public void testThatIHaveAc_ITurnItOn_ItIsOnTest() {
         airCondition.turnOn();
         assertTrue(airCondition.isOn());
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_ITurnItOff_ItIsOffTest() {
-//        AirCondition airCondition = new AirCondition();
+    public void testThatIHaveAc_ITurnItOn_ITurnItOff_ItIsOffTest() {
         airCondition.turnOn();
         assertTrue(airCondition.isOn());
         airCondition.turnOff();
@@ -33,8 +31,7 @@ public class AirConditionTest {
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_AndItIncreaseTemperature_ItsIncreasesTemperatureisSeventeen() {
-//        AirCondition airCondition = new AirCondition();
+    public void testThatIHaveAc_ITurnItOn_AndItIncreaseTemperature_ItsIncreasesTemperatureIsSeventeen() {
         airCondition.turnOn();
         airCondition.increaseTemperature();
         assertTrue(airCondition.isOn());
@@ -42,8 +39,7 @@ public class AirConditionTest {
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_AndItIncreaseTemperature_AndItDecreaseTemperature_ItsDecreasesTemperature() {
-//        AirCondition airCondition = new AirCondition();
+    public void testThatIHaveAc_ITurnItOn_AndItIncreaseTemperature_AndItDecreaseTemperature_ItsDecreasesTemperature() {
         airCondition.turnOn();
         airCondition.increaseTemperature();
         assertTrue(airCondition.isOn());
@@ -54,8 +50,7 @@ public class AirConditionTest {
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_AndItIncreaseTemperatureToThirtyOneTemperatureIsThirty() {
-//        AirCondition airCondition = new AirCondition();
+    public void testThatIHaveAc_ITurnItOn_AndItIncreaseTemperatureToThirtyOneTemperatureIsThirty() {
         airCondition.turnOn();
         airCondition.increaseTemperature();
         for (int counter = 0; counter < 30; counter++) {
@@ -69,8 +64,7 @@ public class AirConditionTest {
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_AndIDecreaseTemperaturebelow16TemperatureIs16() {
-//        AirCondition airCondition = new AirCondition();
+    public void testThatIHaveAc_ITurnItOn_AndIDecreaseTemperatureBelow16TemperatureIs16() {
         airCondition.turnOn();
         airCondition.decreaseTemperature();
 
@@ -79,14 +73,27 @@ public class AirConditionTest {
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_iTurnItOff_AndIDecreaseTemperaturebelow16NoAction() {
-
+    public void testThatIHaveAc_ITurnItOn_iTurnItOff_AndIDecreaseTemperatureBelow16NoAction() {
+        airCondition.turnOn();
+        assertTrue(airCondition.isOn());
+        airCondition.turnOff();
+        assertFalse(airCondition.isOn());
+        for(int counter = 0; counter < 30; counter++) {
+            airCondition.decreaseTemperature();
+        }
+        assertEquals(16, airCondition.getTemperature());
     }
 
     @Test
-    public void iHaveAAc_ITurnItOn_iTurnItOff_AndIDincreaseTemperatureAbove30NoAction() {
-
+    public void testThatIHaveAc_ITurnItOneAndTurnItOff_AndIIncreaseTemperatureNoAction() {
+        airCondition.turnOn();
+        assertTrue(airCondition.isOn());
+        airCondition.turnOff();
+        assertFalse(airCondition.isOn());
+        for(int counter = 0; counter < 30; counter++) {
+            airCondition.increaseTemperature();
+        }
+        assertEquals(16, airCondition.getTemperature());
     }
-
 
 }
